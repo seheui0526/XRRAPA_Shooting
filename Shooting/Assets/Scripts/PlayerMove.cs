@@ -9,7 +9,13 @@ public class PlayerMove : MonoBehaviour
     // 키 입력에 따라서 플레이어 오브젝트도 이동한다.
     // 속도(방향 -> 벡터, 크기 -> 속력 변수)
 
+
+    // 마우스 좌측 버튼을 누르면 총알을 발사하고 싶다.
+    // 변수: 총알 오브젝트, 초기 위치 벡터
+    
+
     public float moveSpeed = 0.2f;
+    public GameObject bullet;
 
     void Start()
     {
@@ -27,9 +33,22 @@ public class PlayerMove : MonoBehaviour
         // 가져온 Axis 값으로 벡터를 만든다.
         Vector3 dir = new Vector3(h, v, 0);
 
+        // 벡터의 길이가 1이 되도록 정규화한다.
+        dir.Normalize();
+
         // p = p0 + vt
         transform.position += dir * moveSpeed * Time.deltaTime;
-        
+
+        // 1. 마우스 좌측 버튼의 입력을 받는다.
+        if (Input.GetButtonDown("Fire1"))
+        {
+            // 2. 총알을 생성한다.
+            GameObject go = Instantiate(bullet);
+
+            // 3. 총알의 초기 위치시킨다.
+            go.transform.position = transform.position;
+        }
+
     }
 
 }
