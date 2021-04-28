@@ -11,7 +11,6 @@ public class PlayerMove : MonoBehaviour
 
     public float moveSpeed = 0.2f;
 
-
     void Start()
     {
         
@@ -19,8 +18,18 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        transform.position = transform.position + Vector3.up * moveSpeed * Time.deltaTime;
+        //transform.position = transform.position + Vector3.right * moveSpeed * Time.deltaTime;
 
+        // Input Manager에 미리 설정되어 있는 Axis를 이름으로 값을 가져온다.
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        // 가져온 Axis 값으로 벡터를 만든다.
+        Vector3 dir = new Vector3(h, v, 0);
+
+        // p = p0 + vt
+        transform.position += dir * moveSpeed * Time.deltaTime;
         
     }
+
 }
