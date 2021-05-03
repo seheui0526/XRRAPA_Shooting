@@ -13,6 +13,9 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
+        // 씬에 있는 플레이어 오브젝트를 찾는다.
+        player = GameObject.Find("Player");
+
         // rate의 확률로 플레이어 방향으로 설정한다.
         int draw = Random.Range(1, 101);
         //print(draw);

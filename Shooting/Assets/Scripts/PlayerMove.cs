@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
 
     public float moveSpeed = 0.2f;
     public GameObject bullet;
+    public GameObject firePosition;
 
     void Start()
     {
@@ -45,10 +46,9 @@ public class PlayerMove : MonoBehaviour
             // 2. 총알을 생성한다.
             GameObject go = Instantiate(bullet);
 
-            // 3. 총알의 초기 위치시킨다.
-            go.transform.position = transform.position;
+            // 3. 총알의 초기 위치를 firePosition의 위치로 일치시킨다.
+            go.transform.position = firePosition.transform.position;
         }
-
     }
 
 }

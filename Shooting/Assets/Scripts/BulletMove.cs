@@ -24,4 +24,15 @@ public class BulletMove : MonoBehaviour
         Vector3 dir = new Vector3(0, 1, 0);
         transform.position += dir * moveSpeed * Time.deltaTime;
     }
+
+
+    // 충돌 이벤트 함수(콜백 함수)
+    private void OnCollisionEnter(Collision col)
+    {
+        // 부딪힌 대상을 제거하고
+        Destroy(col.gameObject);
+
+        // 나를 제거한다.
+        Destroy(gameObject);
+    }
 }
