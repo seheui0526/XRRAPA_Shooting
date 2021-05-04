@@ -42,4 +42,37 @@ public class EnemyMove : MonoBehaviour
         // 플레이어를 향해서 가고 싶다.
         transform.position += dir * moveSpeed * Time.deltaTime;
     }
+
+    // 나와 부딪힌 대상을 제거하고, 나를 제거한다.
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    // 부딪힌 대상의 이름이 "Player"라는 글씨를 포함하고 있다면...
+    //    //if (collision.gameObject.name == "Player")
+    //    if (collision.gameObject.name.Contains("Player"))
+    //    {
+    //        Destroy(collision.gameObject);
+    //        Destroy(gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        // 부딪힌 대상의 이름이 "Player"라는 글씨를 포함하고 있다면...
+        //if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name.Contains("Player"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    
 }

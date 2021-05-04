@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
 
     // 마우스 좌측 버튼을 누르면 총알을 발사하고 싶다.
     // 변수: 총알 오브젝트, 초기 위치 벡터
-    
+
 
     public float moveSpeed = 0.2f;
     public GameObject bullet;
@@ -24,6 +24,26 @@ public class PlayerMove : MonoBehaviour
     }
 
     void Update()
+    {
+
+        // 1. 마우스 좌측 버튼의 입력을 받는다.
+        if (Input.GetButtonDown("Fire1"))
+        {
+            // 2. 총알을 생성한다.
+            GameObject go = Instantiate(bullet);
+
+            // 3. 총알의 초기 위치를 firePosition의 위치로 일치시킨다.
+            go.transform.position = firePosition.transform.position;
+
+            // 4. 총알의 발사 소리를 플레이하고 싶다.
+            // 내 게임 오브젝트의 오디오 소스 컴포넌트를 가져온다.
+            AudioSource bangSound = gameObject.GetComponent<AudioSource>();
+            bangSound.Play();
+            bangSound.volume = 0.5f;
+        }
+    }
+
+    private void FixedUpdate()
     {
         //transform.position = transform.position + Vector3.right * moveSpeed * Time.deltaTime;
 
@@ -39,16 +59,6 @@ public class PlayerMove : MonoBehaviour
 
         // p = p0 + vt
         transform.position += dir * moveSpeed * Time.deltaTime;
-
-        // 1. 마우스 좌측 버튼의 입력을 받는다.
-        if (Input.GetButtonDown("Fire1"))
-        {
-            // 2. 총알을 생성한다.
-            GameObject go = Instantiate(bullet);
-
-            // 3. 총알의 초기 위치를 firePosition의 위치로 일치시킨다.
-            go.transform.position = firePosition.transform.position;
-        }
     }
 
 }

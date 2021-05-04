@@ -27,12 +27,35 @@ public class BulletMove : MonoBehaviour
 
 
     // 충돌 이벤트 함수(콜백 함수)
-    private void OnCollisionEnter(Collision col)
-    {
-        // 부딪힌 대상을 제거하고
-        Destroy(col.gameObject);
+    //private void OnCollisionEnter(Collision col)
+    //{
+    //    // 만일, 부딪힌 대상의 이름이 "Enemy"라는 이름을 포함하고 있다면...
+    //    if (col.gameObject.name.Contains("Enemy"))
+    //    {
+    //        Destroy(col.gameObject);
 
-        // 나를 제거한다.
-        Destroy(gameObject);
+    //        // 나를 제거한다.
+    //        Destroy(gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider col)
+    {
+        // 만일, 부딪힌 대상의 이름이 "Enemy"라는 이름을 포함하고 있다면...
+        if (col.gameObject.name.Contains("Enemy"))
+        {
+            Destroy(col.gameObject);
+
+            // 나를 제거한다.
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
