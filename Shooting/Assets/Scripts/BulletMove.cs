@@ -9,6 +9,8 @@ public class BulletMove : MonoBehaviour
     // 1. 방향을 정한다.
     // 2. 이동한다.
 
+    public GameObject boomEffect;
+
     float moveSpeed = 8.0f;
 
     void Start()
@@ -48,7 +50,16 @@ public class BulletMove : MonoBehaviour
         // 만일, 부딪힌 대상의 이름이 "Enemy"라는 이름을 포함하고 있다면...
         if (col.gameObject.name.Contains("Enemy"))
         {
+            // Enemy를 제거한다.
             Destroy(col.gameObject);
+
+            // 폭발 이펙트를 생성하고 플레이하고 싶다.
+            GameObject go = Instantiate(boomEffect);
+            go.transform.position = col.transform.position;
+
+            ParticleSystem ps = go.GetComponent<ParticleSystem>();
+            ps.Stop();
+            ps.Play();
 
             // 나를 제거한다.
             Destroy(gameObject);

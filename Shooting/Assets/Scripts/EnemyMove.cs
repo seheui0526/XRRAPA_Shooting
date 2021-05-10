@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     public float moveSpeed = 6;
-    public GameObject player;
+    public GameObject player = null;
     public int rate = 60;
+    public GameObject explosionFX;
 
     Vector3 dir;
 
@@ -22,8 +23,17 @@ public class EnemyMove : MonoBehaviour
 
         if(draw <= rate)
         {
-            dir = player.transform.position - transform.position;
-            dir.Normalize();
+            // 만일, 플레이어를 찾은 상태라면...
+            if (player != null)
+            {
+                dir = player.transform.position - transform.position;
+                dir.Normalize();
+            }
+            // 그렇지 않다면(플레이어를 못 찾은 상태)...
+            else
+            {
+                dir = Vector3.down;
+            }
         }
         // 나머지의 확률로 방향을 아래로 설정한다.
         else
@@ -65,6 +75,14 @@ public class EnemyMove : MonoBehaviour
         //if (collision.gameObject.name == "Player")
         if (collision.gameObject.name.Contains("Player"))
         {
+            // 이펙트 프리팹을 생성하고, 위치를 플레이어의 위치로 이동시킨다.
+            GameObject go = Instantiate(explosionFX);
+            go.transform.position = collision.transform.position;
+
+            // 생성한 이펙트 오브젝트에서 파티클 시스템 컴포넌트를 가져온다.
+            ParticleSystem ps = go.GetComponent<ParticleSystem>();
+            ps.Play();
+
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

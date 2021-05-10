@@ -112,6 +112,7 @@ MonoBehaviour:
   moveSpeed: 7
   player: {fileID: 6388139095242130620, guid: 1853ffc20c30d704a8b791ca0ebf3674, type: 3}
   rate: 50
+  explosionFX: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
 --- !u!54 &2155947295683510894
 Rigidbody:
   m_ObjectHideFlags: 0

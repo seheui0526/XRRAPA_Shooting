@@ -9,11 +9,7 @@ public class TailMove : MonoBehaviour
     public GameObject target;
     public float moveSpeed = 5;
 
-    void Start()
-    {
-        
-    }
-
+  
     void Update()
     {
         // 1. 타겟으로의 방향을 설정한다(정규화).
