@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1158292431273629128}
   - component: {fileID: 4683452335609866811}
   - component: {fileID: 2155947295683510894}
+  - component: {fileID: 2288369213662085825}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -50,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4718012471765022464}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -129,3 +130,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2288369213662085825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718012471765022464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2969f45d04f4e5748a07286f6962fa4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models:
+  - {fileID: 100004, guid: 1b6b8533dff939a4eadc004918efd106, type: 3}
+  - {fileID: 100000, guid: 566ca0e67735adf488d5d924a624748c, type: 3}
+  - {fileID: 100000, guid: 2cfae3f404d0e74498d02d924a3a9b63, type: 3}
+  - {fileID: 100004, guid: 4bd6906720920be42b437965abfce612, type: 3}

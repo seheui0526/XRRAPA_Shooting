@@ -39,7 +39,7 @@ public class PlayerMove : MonoBehaviour
             // 내 게임 오브젝트의 오디오 소스 컴포넌트를 가져온다.
             AudioSource bangSound = gameObject.GetComponent<AudioSource>();
             bangSound.Play();
-            bangSound.volume = 0.5f;
+            //bangSound.volume = 0.2f;
         }
     }
 

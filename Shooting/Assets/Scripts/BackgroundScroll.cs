@@ -24,6 +24,6 @@ public class BackgroundScroll : MonoBehaviour
         // Material의 offset 값을 조정해야 한다.
         // offset의 y값을 매 프레임마다 일정 값(변수)만큼 증가시킨다.
         matBG.mainTextureOffset += new Vector2(0, 1) * scrollSpeed * Time.deltaTime;
-
+        
     }
 }

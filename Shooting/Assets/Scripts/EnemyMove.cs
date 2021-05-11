@@ -84,6 +84,7 @@ public class EnemyMove : MonoBehaviour
             ps.Play();
 
             Destroy(collision.gameObject);
+            SoundManager.sm.PlayGameoverSound();
             Destroy(gameObject);
         }
         else
