@@ -84,8 +84,15 @@ public class EnemyMove : MonoBehaviour
             ps.Play();
 
             Destroy(collision.gameObject);
+            
+            // 배경 음악을 교체하고, 메뉴 UI를 활성화한다.
             SoundManager.sm.PlayGameoverSound();
             UIManager.instance.ActivateMenuUI();
+
+            // 최고 점수를 파일로 저장한다.
+            string result = GameManager.instance.SaveScore();
+            print(result);
+
             Destroy(gameObject);
         }
         else

@@ -52,6 +52,7 @@ public class BulletMove : MonoBehaviour
         {
             // Enemy를 제거한다.
             Destroy(col.gameObject);
+            GameManager.instance.AddScore(1);
 
             // 폭발 이펙트를 생성하고 플레이하고 싶다.
             GameObject go = Instantiate(boomEffect);
