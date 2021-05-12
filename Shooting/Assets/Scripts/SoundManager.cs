@@ -22,17 +22,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
+      
     public void PlayGameoverSound()
     {
         bgm.Stop();

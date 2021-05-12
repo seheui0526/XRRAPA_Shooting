@@ -17,15 +17,9 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed = 0.2f;
     public GameObject bullet;
     public GameObject firePosition;
-
-    void Start()
-    {
-        
-    }
-
+    
     void Update()
     {
-
         // 1. 마우스 좌측 버튼의 입력을 받는다.
         if (Input.GetButtonDown("Fire1"))
         {
