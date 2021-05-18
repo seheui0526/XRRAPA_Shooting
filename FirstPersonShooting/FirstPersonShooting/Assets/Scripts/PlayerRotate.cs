@@ -8,6 +8,9 @@ public class PlayerRotate : MonoBehaviour
     // 필요 요소: 마우스 드래그 입력, 회전의 방향(축), 회전 속력
     public float rotSpeed = 10.0f;
 
+    public bool rotateX = false;
+    public bool rotateY = false;
+
     float rotX = 0;
     float rotY = 0;
 
@@ -49,8 +52,15 @@ public class PlayerRotate : MonoBehaviour
         #endregion
 
         // 입력 값을 회전 변수에 누적시킨다.
-        rotX += x * rotSpeed * Time.deltaTime;
-        rotY += y * rotSpeed * Time.deltaTime;
+        if (rotateY)
+        {
+            rotX += x * rotSpeed * Time.deltaTime;
+        }
+
+        if (rotateX)
+        {
+            rotY += y * rotSpeed * Time.deltaTime;
+        }
 
         // rotY의 값을 -60도 ~ 60도 사이로 제한한다.
         rotY = Mathf.Clamp(rotY, -60.0f, 60.0f);
@@ -58,6 +68,6 @@ public class PlayerRotate : MonoBehaviour
         // 회전 벡터(오일러 각)를 만든다.
         Vector3 dir = new Vector3(-rotY, rotX, 0);
 
-        transform.eulerAngles = dir;
+        transform.localEulerAngles = dir;
     }
 }

@@ -68,6 +68,7 @@ public class PlayerMove : MonoBehaviour
         if (cc.collisionFlags == CollisionFlags.Below)
         {
             jumpCount = 2;
+            yVelocity = 0;
 
             // 통통 튕겨오르기
             if (isJump)
